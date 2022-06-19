@@ -7,15 +7,15 @@ import requests
 data = {}
 
 #Thingspeak url
-elevator_pos="https://api.thingspeak.com/update?api_key=ZV2MQH5X04IBLC2I&field1="
-elevator_spd="https://api.thingspeak.com/update?api_key=ZV2MQH5X04IBLC2I&field2="
-elevator_queue= "https://api.thingspeak.com/update?api_key=ZV2MQH5X04IBLC2I&field3="
+elevator_pos="https://api.thingspeak.com/update?api_key=api_key="
+elevator_spd="https://api.thingspeak.com/update?api_key=api_key="
+elevator_queue= "https://api.thingspeak.com/update?api_key=api_key="
 
 #Thingspeak url end
 
 #function for Ubidots platform
 def ubidots(label,value):
-    TOKEN = "BBFF-9a8NOTBNaHBooZrvE7iMFcDf0nPE2y"  # Put your TOKEN here
+    TOKEN = "token"  # Put your TOKEN here
     DEVICE_LABEL = "elevator"  # Put your device label here
     VARIABLE_LABEL_1 = label  # Put your first variable label here
     def build_payload(variable_1):
@@ -23,8 +23,7 @@ def ubidots(label,value):
         value_1 = value
         payload = {variable_1: value_1,}
         return payload
-
-
+    
     def post_request(payload):
         # Creates the headers for the HTTP requests
         url = "http://industrial.api.ubidots.com"
@@ -60,10 +59,6 @@ def ubidots(label,value):
         print("[INFO] finished")
     main()
 #ubidot end
-
-
-
-
 
 # setting callbacks for different events to see if it works, print the message etc.
 def on_connect(client, userdata, flags, rc, properties=None):
