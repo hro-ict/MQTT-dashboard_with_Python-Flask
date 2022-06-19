@@ -49,15 +49,11 @@
 <body>
 
 
-
 </body>
-
 
 
 <h1 style="text-align: center;color:darkgreen; font-family: 'Courier New', monospace;">ELEVATOR DASHBOARD</h1>
 <h3 >Building: Communication Tower</h3>
-
-
 
 
 <div class="flesk_cont">
@@ -99,7 +95,7 @@
 
 <script>
   setInterval(function (){
-        $.post("http://localhost:3569/test", function (data){
+        $.post("http://localhost:3569/dashboard", function (data){
             $("#door_position_text").html(data.door_position)
             $("#door_status_text").html(data.door_status)
             if (data.door_status[0]=="O" || data.door_status[4]=="i" ){
@@ -121,9 +117,5 @@
 
     })
   },100)
-    // setInterval(function (){
-    //     location.reload()
-    // },200)
-</script>
 
 </html>
